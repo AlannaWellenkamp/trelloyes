@@ -12,8 +12,17 @@ class List extends React.Component {
                 </header>
                 <div className='List-cards'>
                     {this.props.cards.map((card) =>
-                        <Card title={card.title} key={card.id} content={card.content} />)}
-                    <button type="button" className="List-add-button">
+                        <Card title={card.title}
+                            id={card.id}
+                            key={card.id}
+                            content={card.content}
+                            onDelete={this.props.onDelete}
+                        />)}
+                    <button
+                        type="button"
+                        className="List-add-button"
+                        onClick={() => this.props.onAdd(this.props.id)}
+                    >
                         + Add Random Card
                     </button>
                 </div>
